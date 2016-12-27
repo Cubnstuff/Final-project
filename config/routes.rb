@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'epicenter/feed'
+
+  get 'epicenter/trending'
+
+  get 'epicenter/show_user'
+
+  get 'epicenter/now_following'
+
+  get 'epicenter/unfollow'
+
   resources :doodles
   
   root 'doodles#index'
