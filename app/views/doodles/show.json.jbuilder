@@ -1,0 +1,1 @@
+json.partial! "doodles/doodle", doodle: @doodle
