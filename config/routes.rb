@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'feed' => 'epicenter#feed'
 
-  root  'epicenter#trending'
+  root 'epicenter#feed'
+
+  get 'epicenter#trending'
 
   get 'show_user' => 'epicenter#show_user'
 
-  get 'now_following' => 'epicenter#now_following'
+  get 'now_following' => 'epicenter/now_following'
 
-  get 'unfollow' => 'epicenter#unfollow'
+  get 'unfollow' => 'epicenter/unfollow'
 
   resources :doodles
   

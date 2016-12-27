@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227013412) do
+ActiveRecord::Schema.define(version: 20161227044305) do
 
   create_table "doodles", force: :cascade do |t|
     t.string   "canvas"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161227013412) do
     t.string   "name"
     t.string   "username"
     t.text     "bio"
+    t.text     "following"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

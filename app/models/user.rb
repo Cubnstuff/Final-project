@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
          has_many :doodles
-         
+         serialize :following, Array
         validates :username, presence: true, uniqueness: true
 end
