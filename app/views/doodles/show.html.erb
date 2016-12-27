@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Canvas:</strong>
+  <%= @doodle.canvas %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @doodle.title %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @doodle.rating %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @doodle.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_doodle_path(@doodle) %> |
+<%= link_to 'Back', doodles_path %>
