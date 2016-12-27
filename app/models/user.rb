@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          
          has_many :doodles
          
+        validates :username, presence: true, uniqueness: true
 end
