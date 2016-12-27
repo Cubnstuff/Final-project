@@ -1,2 +1,12 @@
-<h1>Epicenter#feed</h1>
-<p>Find me in app/views/epicenter/feed.html.erb</p>
+<h1>@<%= current_user.username %>'s Feed</h1>
+
+<p>Here is what everyone  has been doodling!!!</p>
+
+<div>
+<%= @following_doodles.each do |doodle| %>
+   <div>
+    <p><%= doodle.message %></p>
+    <p>@<%= doodle.user.username %></p>
+   </div>
+  <% end %>
+</div>
