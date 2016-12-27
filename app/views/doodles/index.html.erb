@@ -2,7 +2,7 @@
 
 <h1>Listing Doodles</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Canvas</th>
@@ -19,7 +19,7 @@
         <td><%= doodle.canvas %></td>
         <td><%= doodle.title %></td>
         <td><%= doodle.rating %></td>
-        <td><%= doodle.user_id %></td>
+        <td><%= doodle.user.username %></td>
         <td><%= link_to 'Show', doodle %></td>
         <td><%= link_to 'Edit', edit_doodle_path(doodle) %></td>
         <td><%= link_to 'Destroy', doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
