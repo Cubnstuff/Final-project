@@ -1,2 +1,33 @@
-<h1>Epicenter#show_user</h1>
-<p>Find me in app/views/epicenter/show_user.html.erb</p>
+<h1><%= @user.username %>'s profile</h1>
+<div class="row">
+    <div class="col-md-10">
+        <% @user.doodles.each do |doodle| %>
+        <div>
+            <p><%= doodle.title %></p>
+            <p><%= doodle.user.username %></p>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="col-md-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+         <h3><%= @user.username %></h3>
+      </div>
+      <div class="panel-body">
+        <p><%= @user.name %></p>
+        <p><%= @user.bio %></p>
+          <% if current_user.id != @user.id %>
+                 
+                <p>
+                   <% if current_user.following.include?(@user.id) %>
+                        <%= link_to "Following", unfollow_path(id: @user.id), class: "btn btn-primary", id: "unfollow_btn" %>
+                    <% else %>
+                        <%= link_to "Follow", now_following_path(id: @user.id), class: "btn" %>
+                    <% end %>
+                </p>
+                <% end %>
+      </div>
+    </div>
+    
+</div>

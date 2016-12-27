@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-  get 'epicenter/feed'
+  get 'feed' => 'epicenter#feed'
 
-  get 'epicenter/trending'
+  root  'epicenter#trending'
 
-  get 'epicenter/show_user'
+  get 'show_user' => 'epicenter#show_user'
 
-  get 'epicenter/now_following'
+  get 'now_following' => 'epicenter#now_following'
 
-  get 'epicenter/unfollow'
+  get 'unfollow' => 'epicenter#unfollow'
 
   resources :doodles
   
-  root 'doodles#index'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
