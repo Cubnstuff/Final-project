@@ -1,4 +1,6 @@
 class EpicenterController < ApplicationController
+  before_filter :authenticate_user!
+  
   def feed
     @following_doodles = []
     
@@ -12,11 +14,13 @@ class EpicenterController < ApplicationController
   end
 
   def show_user
-    @user = User.find(params[:id].to_i)
+    @user = User.find(params[:id])
   end
 
   def now_following
     @user = User.find(params[:id].to_i)
+    current_user.following.push(params[:id].to_i)
+  	current_user.save
   end
 
   def unfollow

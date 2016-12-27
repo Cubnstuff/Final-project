@@ -3,9 +3,9 @@
 <p>Here is what everyone  has been doodling!!!</p>
 
 <div>
-<%= @following_doodles.each do |doodle| %>
+<% @following_doodles.each do |doodle| %>
    <div>
-    <p><%= doodle.message %></p>
+    <p><%= doodle.title %></p>
     <p>@<%= doodle.user.username %></p>
    </div>
   <% end %>
