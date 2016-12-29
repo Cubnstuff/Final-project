@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Canvas:</strong>
-  <%= @doodle.canvas %>
-</p>
+   
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <%= link_to @doodle.user.username, show_user_path(id: @doodle.user.id) %>
+                  </div>
+                  <div class="panel-body">
+                        <%= @doodle.canvas %>
+                        <%= @doodle.title %>
+                        <%= @doodle.rating %>
+                  </div>
+                  <div class="panel-footer">
+                     
+                      <% if current_user.id == @doodle.user.id %>
+                          <td><%= link_to 'Edit', edit_doodle_path(doodle) %></td>
+                          <td><%= link_to 'Destroy', doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <% end %>
+                      <%= link_to 'Back', root_path %>
+                  </div> 
+              </div>
+          </div>
+      </div>
+        
 
-<p>
-  <strong>Title:</strong>
-  <%= @doodle.title %>
-</p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @doodle.rating %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= link_to @doodle.user.username, show_user_path(id: @doodle.user.id) %>
-</p>
-
-<%= link_to 'Edit', edit_doodle_path(@doodle) %> |
-<%= link_to 'Back', doodles_path %>
