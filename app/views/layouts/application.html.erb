@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    
+    <link href="https://fonts.googleapis.com/css?family=Chewy|Coming+Soon|Reenie+Beanie|Rock+Salt" rel="stylesheet">
+
   <title>Workspace</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -33,7 +34,8 @@
       <ul class="nav navbar-nav">
         
             
-     <li> <%= link_to image_tag("pencil.png", class: "img"), root_path %> </li>
+     <li> <%= link_to image_tag("pencil.png", class: "img") %> </li>
+     <li> <%= link_to image_tag("feed.png", class: "img"), root_path %> </li>
            
     <li> <%= link_to image_tag("flame.png", class: "img"), trending_path %> </li>
             

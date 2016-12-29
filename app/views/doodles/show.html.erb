@@ -15,8 +15,8 @@
                   <div class="panel-footer">
                      
                       <% if current_user.id == @doodle.user.id %>
-                          <td><%= link_to 'Edit', edit_doodle_path(doodle) %></td>
-                          <td><%= link_to 'Destroy', doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                          <td><%= link_to 'Edit', edit_doodle_path(@doodle) %></td>
+                          <td><%= link_to 'Destroy', @doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                       <% end %>
                       <%= link_to 'Back', root_path %>
                   </div> 

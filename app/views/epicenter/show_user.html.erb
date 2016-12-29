@@ -1,35 +1,60 @@
 
 <h1><%= @user.username %>'s profile</h1>
 <div class="row">
-    <div class="col-md-10">
-        <% @user.doodles.each do |doodle| %>
-        <div>
-            <p><%= doodle.title %></p>
-            <p><%= doodle.user.username %></p>
+    <div class="col-md-2 col-md-offset-10 ">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+             <h3><%= @user.username %></h3>
+          </div>
+          <div class="panel-body">
+            <p>Name: <%= @user.name %></p>
+            <p>About: <%= @user.bio %></p>
+             
+             <div>
+              <% if current_user.id != @user.id %>
+                     <p>
+                  <% if current_user.following.include?(@user.id) %>
+                        <%= link_to "Following", unfollow_path(id: @user.id), class: "btn btn-primary", id: "unfollow-btn" %>
+                    <% else %>
+                    <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>
+                    <% end %>
+                    </p>
+                  <% end %>
+             </div>
+            </div>
         </div>
-        <% end %>
     </div>
 
-    <div class="col-md-2">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-         <h3><%= @user.username %></h3>
-      </div>
-      <div class="panel-body">
-        <p>Name: <%= @user.name %></p>
-        <p>About: <%= @user.bio %></p>
-         
-         <div>
-          <% if current_user.id != @user.id %>
-                 <p>
-  <% if current_user.following.include?(@user.id) %>
-        <%= link_to "Following", unfollow_path(id: @user.id), class: "btn btn-primary", id: "unfollow-btn" %>
-    <% else %>
-    <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>
+
+
+
+
+
+    <% @user.doodles.each do |doodle| %>
+        <div class="col-md-6 col-md-offset-3">
+
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <%= doodle.user.username %>
+                  </div>
+                  <div class="panel-body">
+                        <%= doodle.canvas %>
+                        <%= doodle.title %>
+                        <%= doodle.rating %>
+                  </div>
+                  <div class="panel-footer">
+                      <%= link_to 'Show', doodle %>
+                      <% if current_user.id == doodle.user.id %>
+                          <td><%= link_to 'Edit', edit_doodle_path(doodle) %></td>
+                          <td><%= link_to 'Destroy', doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <% end %>
+                  </div> 
+              </div>
+        </div>
     <% end %>
-</p>
-<% end %>
-</div>
+    
+    
+    </div>
 </div>
 
 
