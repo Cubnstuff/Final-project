@@ -26,16 +26,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= image_tag "draw.png", class: "img"%>
+      
  </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
             
-     <li> <%= link_to "Feed", root_path %> </li>
+     <li> <%= link_to image_tag("pencil.png", class: "img"), root_path %> </li>
            
-     <li><%= link_to "Trending", trending_path %></li>
+    <li> <%= link_to image_tag("flame.png", class: "img"), trending_path %> </li>
             
       </ul>
       
@@ -43,7 +43,7 @@
         <% if user_signed_in? %>
         <li><%= link_to current_user.username, show_user_path(id: current_user.id) %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= image_tag "gear.png", class: "img"%></span></a>
           <ul class="dropdown-menu">
             
                <li><%= link_to "Edit Profile", edit_user_registration_path %> </li>
@@ -51,7 +51,7 @@
              
              <% else %>
              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= image_tag "gear.png", class: "img"%></span></a>
               <ul class="dropdown-menu">
                <li><%= link_to "Sign-up", new_user_registration_path %></li>
                <li><%= link_to "Forgot Password", new_user_password_path %></li>

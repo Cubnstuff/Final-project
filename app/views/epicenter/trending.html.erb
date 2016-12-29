@@ -1,31 +1,31 @@
-<h1>Listing Doodles</h1>
+<h1>On Fire this week</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Canvas</th>
-      <th>Title</th>
-      <th>Rating</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<p class="text-center">
+    <%= link_to image_tag("art.png", class: "img"), new_doodle_path %>
+</p>
     <% @doodles.each do |doodle| %>
-      <tr>
-        <td><%= doodle.canvas %></td>
-        <td><%= doodle.title %></td>
-        <td><%= doodle.rating %></td>
-        <td><%= link_to doodle.user.username, show_user_path(id: doodle.user.id) %></td>
-        <td><%= link_to 'Show', doodle %></td>
-        <td><%= link_to 'Edit', edit_doodle_path(doodle) %></td>
-        <td><%= link_to 'Destroy', doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <%= link_to doodle.user.username, show_user_path(id: doodle.user.id) %>
+                  </div>
+                  <div class="panel-body">
+                        <%= doodle.canvas %>
+                        <%= doodle.title %>
+                        <%= doodle.rating %>
+                  </div>
+                  <div class="panel-footer">
+                      <%= link_to 'Show', doodle %>
+                      <% if current_user.id == doodle.user.id %>
+                          <td><%= link_to 'Edit', edit_doodle_path(doodle) %></td>
+                          <td><%= link_to 'Destroy', doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <% end %>
+                  </div> 
+              </div>
+          </div>
+      </div>
+        
     <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Doodle', new_doodle_path %>
