@@ -1,2 +1,31 @@
-<h1>Epicenter#trending</h1>
-<p>Find me in app/views/epicenter/trending.html.erb</p>
+<h1>Listing Doodles</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Canvas</th>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doodles.each do |doodle| %>
+      <tr>
+        <td><%= doodle.canvas %></td>
+        <td><%= doodle.title %></td>
+        <td><%= doodle.rating %></td>
+        <td><%= link_to doodle.user.username, show_user_path(id: doodle.user.id) %></td>
+        <td><%= link_to 'Show', doodle %></td>
+        <td><%= link_to 'Edit', edit_doodle_path(doodle) %></td>
+        <td><%= link_to 'Destroy', doodle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doodle', new_doodle_path %>
