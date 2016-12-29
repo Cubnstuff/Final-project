@@ -18,17 +18,31 @@
       <div class="panel-body">
         <p>Name: <%= @user.name %></p>
         <p>About: <%= @user.bio %></p>
+         
+         <div>
           <% if current_user.id != @user.id %>
-                 
-                <p>
-                   <% if current_user.following.include?(@user.id) %>
-                        <%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger", id: "unfollow_btn" %>
-                    <% else %>
-                        <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>
-                    <% end %>
-                </p>
-                <% end %>
-      </div>
-    </div>
-    
+                 <p>
+  <% if current_user.following.include?(@user.id) %>
+        <%= link_to "Following", unfollow_path(id: @user.id), class: "btn btn-primary", id: "unfollow-btn" %>
+    <% else %>
+    <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>
+    <% end %>
+</p>
+<% end %>
 </div>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+    $("#unfollow-btn").hover(function(){
+      $(this).removeClass("btn-primary");
+      $(this).addClass("btn-danger");
+      $(this).html("Unfollow");
+    }, function(){
+      $(this).html("Following");
+      $(this).removeClass("btn-danger");
+      $(this).addClass("btn-primary");
+    });
+  })
+</script>
