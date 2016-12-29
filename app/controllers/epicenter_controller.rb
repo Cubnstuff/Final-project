@@ -24,5 +24,9 @@ class EpicenterController < ApplicationController
   end
 
   def unfollow
+    @user = User.find(params[:id].to_i)
+    current_user.following.delete(params[:id].to_i)
+    current_user.save
+    
   end
 end
