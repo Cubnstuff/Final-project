@@ -11,6 +11,7 @@ class EpicenterController < ApplicationController
     end
   end
   def trending
+     @doodles = Doodle.all
   end
 
   def show_user
